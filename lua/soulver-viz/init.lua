@@ -5,14 +5,13 @@ local M = {
 
 local nspace = vim.api.nvim_create_namespace('soulver_viz')
 local hlgrp_name = 'SoulverVizResult'
-vim.api.nvim_set_hl(0, hlgrp_name, { italic = true, bold = true })
+vim.cmd([[highlight SoulverVizResult gui=bold,italic]])
 
 function M.setup(opts)
   opts = opts or {}
   if opts.path == nil then error("soulver path provided") end
   M.set_soulver_path(opts.path)
   M.live = opts.live or true
-  vim.api.nvim_set_hl(0, hlgrp_name, { italic = true, bold = true })
 end
 
 function M.set_soulver_path(path, callback)
